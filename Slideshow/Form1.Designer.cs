@@ -33,6 +33,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.prev = new System.Windows.Forms.Button();
             this.next = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.print = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,11 +87,41 @@
             this.next.UseVisualStyleBackColor = true;
             this.next.Click += new System.EventHandler(this.next_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(629, 40);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 23);
+            this.textBox1.TabIndex = 5;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(636, 81);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // print
+            // 
+            this.print.Location = new System.Drawing.Point(600, 383);
+            this.print.Name = "print";
+            this.print.Size = new System.Drawing.Size(75, 23);
+            this.print.TabIndex = 7;
+            this.print.Text = "button2";
+            this.print.UseVisualStyleBackColor = true;
+            this.print.Click += new System.EventHandler(this.print_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.print);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.next);
             this.Controls.Add(this.prev);
             this.Controls.Add(this.pictureBox1);
@@ -109,5 +142,8 @@
         private PictureBox pictureBox1;
         private Button prev;
         private Button next;
+        private TextBox textBox1;
+        private Button button1;
+        private Button print;
     }
 }
