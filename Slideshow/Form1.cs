@@ -80,7 +80,6 @@ namespace Slideshow
         private void button1_Click(object sender, EventArgs e)
         {
             string var=textBox1.Text;
-            // String[] value = Array.Find(Imagefiles, element => element.StartsWith(var, StringComparison.Ordinal));
 
             var match = Imagefiles.FirstOrDefault(value => value.Contains(var));
             route.Text = match;

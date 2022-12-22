@@ -41,7 +41,7 @@
             // 
             // explore
             // 
-            this.explore.Location = new System.Drawing.Point(22, 305);
+            this.explore.Location = new System.Drawing.Point(339, 359);
             this.explore.Name = "explore";
             this.explore.Size = new System.Drawing.Size(75, 23);
             this.explore.TabIndex = 0;
@@ -52,17 +52,16 @@
             // route
             // 
             this.route.AutoSize = true;
-            this.route.Location = new System.Drawing.Point(316, 404);
+            this.route.Location = new System.Drawing.Point(223, 406);
             this.route.Name = "route";
-            this.route.Size = new System.Drawing.Size(38, 15);
+            this.route.Size = new System.Drawing.Size(0, 15);
             this.route.TabIndex = 1;
-            this.route.Text = "label1";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(223, 40);
+            this.pictureBox1.Location = new System.Drawing.Point(129, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(340, 193);
+            this.pictureBox1.Size = new System.Drawing.Size(494, 277);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -73,7 +72,7 @@
             this.prev.Name = "prev";
             this.prev.Size = new System.Drawing.Size(75, 23);
             this.prev.TabIndex = 3;
-            this.prev.Text = "Iniciar";
+            this.prev.Text = "Atras";
             this.prev.UseVisualStyleBackColor = true;
             this.prev.Click += new System.EventHandler(this.prev_Click);
             // 
@@ -83,7 +82,7 @@
             this.next.Name = "next";
             this.next.Size = new System.Drawing.Size(75, 23);
             this.next.TabIndex = 4;
-            this.next.Text = "button1";
+            this.next.Text = "Adelante";
             this.next.UseVisualStyleBackColor = true;
             this.next.Click += new System.EventHandler(this.next_Click);
             // 
@@ -100,17 +99,17 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
+            this.button1.Text = "Buscar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // print
             // 
-            this.print.Location = new System.Drawing.Point(600, 383);
+            this.print.Location = new System.Drawing.Point(636, 359);
             this.print.Name = "print";
             this.print.Size = new System.Drawing.Size(75, 23);
             this.print.TabIndex = 7;
-            this.print.Text = "button2";
+            this.print.Text = "Imrpimir";
             this.print.UseVisualStyleBackColor = true;
             this.print.Click += new System.EventHandler(this.print_Click);
             // 
