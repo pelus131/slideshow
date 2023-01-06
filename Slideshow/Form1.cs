@@ -26,9 +26,13 @@ namespace Slideshow
 
         private void explore_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = null;
-            Imagefiles = new List<string>();
+          
+            if (Imagefiles.Count > 0)
+            {
+                Imagefiles = new List<string>();
+                dataGridView1.DataSource = null;
 
+            }
             using (var fbd = new FolderBrowserDialog())
             {
                 DialogResult result = fbd.ShowDialog();
@@ -196,6 +200,7 @@ namespace Slideshow
 
             route.Text=dataGridView1.SelectedCells[1].Value.ToString();
             pictureBox1.ImageLocation = route.Text;
+            imageCount =Int32.Parse(dataGridView1.CurrentCell.RowIndex.ToString());
         }
 
     }
