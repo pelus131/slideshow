@@ -26,7 +26,7 @@ namespace Slideshow
 
         private void explore_Click(object sender, EventArgs e)
         {
-            
+            dataGridView1.DataSource = null;
 
             using (var fbd = new FolderBrowserDialog())
             {
