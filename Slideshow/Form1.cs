@@ -1,6 +1,7 @@
 using System.IO;
 using System.Drawing.Printing;
-
+using System.Data;
+using System.Windows.Forms;
 
 namespace Slideshow
 {
@@ -25,6 +26,13 @@ namespace Slideshow
 
         private void explore_Click(object sender, EventArgs e)
         {
+          
+            if (Imagefiles.Count > 0)
+            {
+                Imagefiles = new List<string>();
+                dataGridView1.DataSource = null;
+
+            }
             using (var fbd = new FolderBrowserDialog())
             {
                 DialogResult result = fbd.ShowDialog();
@@ -35,7 +43,38 @@ namespace Slideshow
                 }
             }
 
+            DataTable table = new DataTable();
+            table.Columns.Add("File Name");
+            table.Columns.Add("File path");
+            table.Columns.Add("Image",typeof(Image));
+            
+
+            for (int i = 0; i < Imagefiles.Count; i++)
+            {
+                FileInfo file = new FileInfo(Imagefiles[i]);
+                
+                DataRow dr = table.NewRow();
+                Image img = Image.FromFile(file.FullName);
+                dr[0] = file.Name;
+                dr[1] = file.FullName;
+                dr[2] = img;
+                table.Rows.Add(dr);
+              
+            }
+
+            dataGridView1.DataSource = table;
+         
+            DataGridViewColumn column = dataGridView1.Columns[1];
+            column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            ((DataGridViewImageColumn)dataGridView1.Columns[2]).ImageLayout = DataGridViewImageCellLayout.Stretch;
+            dataGridView1.Columns[1].Visible = false;
+            foreach (DataGridViewColumn dgvc in dataGridView1.Columns)
+            {
+                dgvc.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
         }
+       
         private void findImagesInDirectory(string path)
         {
             string[] files = Directory.GetFiles(path);
@@ -132,66 +171,14 @@ namespace Slideshow
            
             if (addcount < 11)
             {
-                addcount++;
+                if (route.Text == "")
+                { MessageBox.Show("No Image slected!"); }
+                else
+                {
+                    addcount++;
 
-                /* switch (addcount)
-                 {
-                     case 2:
-                         pictureBox2.ImageLocation = route.Text;
-
-                         break;
-
-                     case 3:
-                         pictureBox3.ImageLocation = route.Text;
-                         break;
-
-                     case 4:
-                         pictureBox4.ImageLocation = route.Text;
-                         break;
-
-                     case 5:
-                         pictureBox5.ImageLocation = route.Text;
-                         break;
-
-                     case 6:
-                         pictureBox6.ImageLocation = route.Text;
-                         break;
-
-                     case 7:
-                         pictureBox7.ImageLocation = route.Text;
-                         break;
-
-                     case 8:
-                         pictureBox8.ImageLocation = route.Text;
-                         break;
-
-                     case 9:
-                         pictureBox9.ImageLocation = route.Text;
-                         break;
-                     case 10:
-                         pictureBox10.ImageLocation = route.Text;
-                         break;
-
-                     case 11:
-                         pictureBox11.ImageLocation = route.Text;
-                         break;
-
-                     case 12:
-                         pictureBox12.ImageLocation = route.Text;
-                         break;
-
-                     case 13:
-                         pictureBox13.ImageLocation = route.Text;
-                         break;
-                 }
-                */
-
-
-                pictureboxes[addcount].ImageLocation = route.Text;
-                
-
-
-
+                    pictureboxes[addcount].ImageLocation = route.Text;
+                }
 
 
             }
@@ -207,5 +194,14 @@ namespace Slideshow
             }
             else { MessageBox.Show("All picture boxes are empty!"); }
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            route.Text=dataGridView1.SelectedCells[1].Value.ToString();
+            pictureBox1.ImageLocation = route.Text;
+            imageCount =Int32.Parse(dataGridView1.CurrentCell.RowIndex.ToString());
+        }
+
     }
-}
+    }

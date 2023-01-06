@@ -50,6 +50,7 @@
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.add = new System.Windows.Forms.Button();
             this.remove = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -63,11 +64,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // explore
             // 
-            this.explore.Location = new System.Drawing.Point(129, 364);
+            this.explore.Location = new System.Drawing.Point(524, 364);
             this.explore.Name = "explore";
             this.explore.Size = new System.Drawing.Size(75, 23);
             this.explore.TabIndex = 0;
@@ -78,14 +80,14 @@
             // route
             // 
             this.route.AutoSize = true;
-            this.route.Location = new System.Drawing.Point(223, 406);
+            this.route.Location = new System.Drawing.Point(618, 406);
             this.route.Name = "route";
             this.route.Size = new System.Drawing.Size(0, 15);
             this.route.TabIndex = 1;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(129, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(524, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(494, 277);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -94,7 +96,7 @@
             // 
             // prev
             // 
-            this.prev.Location = new System.Drawing.Point(129, 310);
+            this.prev.Location = new System.Drawing.Point(524, 310);
             this.prev.Name = "prev";
             this.prev.Size = new System.Drawing.Size(75, 23);
             this.prev.TabIndex = 3;
@@ -104,7 +106,7 @@
             // 
             // next
             // 
-            this.next.Location = new System.Drawing.Point(272, 310);
+            this.next.Location = new System.Drawing.Point(667, 310);
             this.next.Name = "next";
             this.next.Size = new System.Drawing.Size(75, 23);
             this.next.TabIndex = 4;
@@ -114,14 +116,14 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(438, 311);
+            this.textBox1.Location = new System.Drawing.Point(833, 311);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 23);
             this.textBox1.TabIndex = 5;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(445, 352);
+            this.button1.Location = new System.Drawing.Point(840, 352);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
@@ -131,7 +133,7 @@
             // 
             // print
             // 
-            this.print.Location = new System.Drawing.Point(272, 364);
+            this.print.Location = new System.Drawing.Point(667, 364);
             this.print.Name = "print";
             this.print.Size = new System.Drawing.Size(75, 23);
             this.print.TabIndex = 7;
@@ -141,7 +143,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(660, 53);
+            this.pictureBox2.Location = new System.Drawing.Point(1055, 53);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(100, 50);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -150,7 +152,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(800, 53);
+            this.pictureBox3.Location = new System.Drawing.Point(1195, 53);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(100, 50);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -159,7 +161,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(933, 53);
+            this.pictureBox4.Location = new System.Drawing.Point(1328, 53);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(100, 50);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -168,7 +170,7 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Location = new System.Drawing.Point(660, 128);
+            this.pictureBox5.Location = new System.Drawing.Point(1055, 128);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(100, 50);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -177,7 +179,7 @@
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Location = new System.Drawing.Point(800, 128);
+            this.pictureBox6.Location = new System.Drawing.Point(1195, 128);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(100, 50);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -186,7 +188,7 @@
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Location = new System.Drawing.Point(933, 128);
+            this.pictureBox7.Location = new System.Drawing.Point(1328, 128);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(100, 50);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -195,7 +197,7 @@
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Location = new System.Drawing.Point(660, 218);
+            this.pictureBox8.Location = new System.Drawing.Point(1055, 218);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(100, 50);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -204,7 +206,7 @@
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Location = new System.Drawing.Point(800, 218);
+            this.pictureBox9.Location = new System.Drawing.Point(1195, 218);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(100, 50);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -213,7 +215,7 @@
             // 
             // pictureBox10
             // 
-            this.pictureBox10.Location = new System.Drawing.Point(933, 218);
+            this.pictureBox10.Location = new System.Drawing.Point(1328, 218);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(100, 50);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -222,7 +224,7 @@
             // 
             // pictureBox11
             // 
-            this.pictureBox11.Location = new System.Drawing.Point(660, 298);
+            this.pictureBox11.Location = new System.Drawing.Point(1055, 298);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(100, 50);
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -231,7 +233,7 @@
             // 
             // pictureBox12
             // 
-            this.pictureBox12.Location = new System.Drawing.Point(800, 298);
+            this.pictureBox12.Location = new System.Drawing.Point(1195, 298);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(100, 50);
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -240,7 +242,7 @@
             // 
             // pictureBox13
             // 
-            this.pictureBox13.Location = new System.Drawing.Point(933, 298);
+            this.pictureBox13.Location = new System.Drawing.Point(1328, 298);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(100, 50);
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -249,7 +251,7 @@
             // 
             // add
             // 
-            this.add.Location = new System.Drawing.Point(726, 398);
+            this.add.Location = new System.Drawing.Point(1121, 398);
             this.add.Name = "add";
             this.add.Size = new System.Drawing.Size(75, 23);
             this.add.TabIndex = 20;
@@ -259,7 +261,7 @@
             // 
             // remove
             // 
-            this.remove.Location = new System.Drawing.Point(859, 398);
+            this.remove.Location = new System.Drawing.Point(1254, 398);
             this.remove.Name = "remove";
             this.remove.Size = new System.Drawing.Size(75, 23);
             this.remove.TabIndex = 21;
@@ -267,11 +269,24 @@
             this.remove.UseVisualStyleBackColor = true;
             this.remove.Click += new System.EventHandler(this.remove_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 100;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(473, 586);
+            this.dataGridView1.TabIndex = 22;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1205, 450);
+            this.ClientSize = new System.Drawing.Size(1456, 620);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.remove);
             this.Controls.Add(this.add);
             this.Controls.Add(this.pictureBox10);
@@ -309,6 +324,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,5 +354,6 @@
         private PictureBox pictureBox13;
         private Button add;
         private Button remove;
+        private DataGridView dataGridView1;
     }
 }
