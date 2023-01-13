@@ -51,6 +51,7 @@
             this.add = new System.Windows.Forms.Button();
             this.remove = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.save = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -281,11 +282,22 @@
             this.dataGridView1.TabIndex = 22;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // save
+            // 
+            this.save.Location = new System.Drawing.Point(818, 402);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(131, 23);
+            this.save.TabIndex = 23;
+            this.save.Text = "Save New Image";
+            this.save.UseVisualStyleBackColor = true;
+            this.save.Click += new System.EventHandler(this.save_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1456, 620);
+            this.ClientSize = new System.Drawing.Size(1456, 919);
+            this.Controls.Add(this.save);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.remove);
             this.Controls.Add(this.add);
@@ -311,6 +323,7 @@
             this.Controls.Add(this.explore);
             this.Name = "Form1";
             this.Text = "Slideshow";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -355,5 +368,6 @@
         private Button add;
         private Button remove;
         private DataGridView dataGridView1;
+        private Button save;
     }
 }

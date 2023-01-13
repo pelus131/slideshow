@@ -2,6 +2,8 @@ using System.IO;
 using System.Drawing.Printing;
 using System.Data;
 using System.Windows.Forms;
+using System;
+using System.Security;
 
 namespace Slideshow
 {
@@ -11,7 +13,7 @@ namespace Slideshow
         int imageCount = 0;
         int addcount = -1;
         PictureBox[] pictureboxes = new PictureBox[12];
-
+        OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
 
 
@@ -23,10 +25,15 @@ namespace Slideshow
             pictureboxes[6] = pictureBox8; pictureboxes[7] = pictureBox9; pictureboxes[8] = pictureBox10;
             pictureboxes[9] = pictureBox11; pictureboxes[10] = pictureBox12; pictureboxes[11] = pictureBox13;
         }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            InitializeOpenFileDialog();
+
+        }
 
         private void explore_Click(object sender, EventArgs e)
         {
-          
+
             if (Imagefiles.Count > 0)
             {
                 Imagefiles = new List<string>();
@@ -46,24 +53,24 @@ namespace Slideshow
             DataTable table = new DataTable();
             table.Columns.Add("File Name");
             table.Columns.Add("File path");
-            table.Columns.Add("Image",typeof(Image));
-            
+            table.Columns.Add("Image", typeof(Image));
+
 
             for (int i = 0; i < Imagefiles.Count; i++)
             {
                 FileInfo file = new FileInfo(Imagefiles[i]);
-                
-                DataRow dr = table.NewRow();
+
+                DataRow datarow = table.NewRow();
                 Image img = Image.FromFile(file.FullName);
-                dr[0] = file.Name;
-                dr[1] = file.FullName;
-                dr[2] = img;
-                table.Rows.Add(dr);
-              
+                datarow[0] = file.Name;
+                datarow[1] = file.FullName;
+                datarow[2] = img;
+                table.Rows.Add(datarow);
+
             }
 
             dataGridView1.DataSource = table;
-         
+
             DataGridViewColumn column = dataGridView1.Columns[1];
             column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             ((DataGridViewImageColumn)dataGridView1.Columns[2]).ImageLayout = DataGridViewImageCellLayout.Stretch;
@@ -74,15 +81,15 @@ namespace Slideshow
             }
 
         }
-       
+
         private void findImagesInDirectory(string path)
         {
             string[] files = Directory.GetFiles(path);
-            foreach (string s in files)
+            foreach (string file in files)
             {
-                if (s.EndsWith(".jpg") || s.EndsWith(".jpeg"))
+                if (file.EndsWith(".jpg") || file.EndsWith(".jpeg"))
                 {
-                    Imagefiles.Add(s);
+                    Imagefiles.Add(file);
                 }
             }
             try
@@ -102,10 +109,13 @@ namespace Slideshow
             }
             else
             {
-                string nextImage = Imagefiles[imageCount + 1];
-                pictureBox1.ImageLocation = nextImage;
+                string nextImageRoute = Imagefiles[imageCount + 1];
+                pictureBox1.ImageLocation = nextImageRoute;
                 imageCount += 1;
-                route.Text = nextImage;
+                route.Text = nextImageRoute;
+                dataGridView1.ClearSelection();
+                dataGridView1.Rows[imageCount].Selected = true;
+
             }
 
         }
@@ -119,22 +129,25 @@ namespace Slideshow
             }
             else
             {
-                string prevImage = Imagefiles[imageCount - 1];
-                pictureBox1.ImageLocation = prevImage;
+                string prevImageRoute = Imagefiles[imageCount - 1];
+                pictureBox1.ImageLocation = prevImageRoute;
                 imageCount -= 1;
-                route.Text = prevImage;
+                route.Text = prevImageRoute;
+                dataGridView1.ClearSelection();
+                dataGridView1.Rows[imageCount].Selected = true;
+
 
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string var = textBox1.Text;
+            string SearchInput = textBox1.Text;
 
-            var match = Imagefiles.Find(value => value.Contains(var));
+            var matchpath = Imagefiles.Find(value => value.Contains(SearchInput));
 
-            route.Text = match;
-            pictureBox1.ImageLocation = match;
+            route.Text = matchpath;
+            pictureBox1.ImageLocation = matchpath;
 
 
         }
@@ -168,7 +181,7 @@ namespace Slideshow
 
         private void add_Click(object sender, EventArgs e)
         {
-           
+
             if (addcount < 11)
             {
                 if (route.Text == "")
@@ -198,10 +211,58 @@ namespace Slideshow
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            route.Text=dataGridView1.SelectedCells[1].Value.ToString();
+            route.Text = dataGridView1.SelectedCells[1].Value.ToString();
             pictureBox1.ImageLocation = route.Text;
-            imageCount =Int32.Parse(dataGridView1.CurrentCell.RowIndex.ToString());
+            imageCount = Int32.Parse(dataGridView1.CurrentCell.RowIndex.ToString());
         }
 
+        private void save_Click(object sender, EventArgs e)
+        {
+            //Change the destination directory later
+            string destinationDirectory = "c:\\myDestinationFolder\\";
+
+            DialogResult dr = this.openFileDialog1.ShowDialog();
+            if (dr == System.Windows.Forms.DialogResult.OK)
+            {
+                // Read the files
+                foreach (String file in openFileDialog1.FileNames)
+                {
+                    try
+                    {
+                        File.Copy(file, destinationDirectory + Path.GetFileName(file),true);
+                    }
+                    catch (SecurityException ex)
+                    {
+                        // The user lacks appropriate permissions to read files, discover paths, etc.
+                        MessageBox.Show("Security error. Please contact your administrator for details.\n\n" +
+                            "Error message: " + ex.Message + "\n\n" +
+                            "Details (send to Support):\n\n" + ex.StackTrace
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        // Could not load the image in general
+                        MessageBox.Show("Cannot display the image: " + file.Substring(file.LastIndexOf('\\'))
+                            + ". You may not have permission to read the file, or " +
+                            "it may be corrupt.\n\nReported error: " + ex.Message);
+                    }
+                }
+            }
+        }
+        private void InitializeOpenFileDialog()
+        {
+            // Filter
+            this.openFileDialog1.Filter =
+                "Images (*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF,*.PNG|" +
+                "All files (*.*)|*.*";
+
+                   this.openFileDialog1.Multiselect = true;
+            this.openFileDialog1.Title = "Select the Image(s) to Save ";
+            //Customizable path to start the browse
+            this.openFileDialog1.InitialDirectory = "c:\\";
+        }
+        
+
+       
     }
-    }
+}
