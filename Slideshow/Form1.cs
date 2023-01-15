@@ -4,7 +4,7 @@ using System.Data;
 using System.Windows.Forms;
 using System;
 using System.Security;
-
+using System.Printing
 namespace Slideshow
 {
     public partial class Form1 : Form
@@ -261,8 +261,8 @@ namespace Slideshow
             //Customizable path to start the browse
             this.openFileDialog1.InitialDirectory = "c:\\";
         }
+
         
 
-       
     }
 }
