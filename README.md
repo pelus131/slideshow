@@ -1,4 +1,4 @@
-# slideshow AKA Proyecto a lo wey de imagenes 
+# slideshow 
 
-Programa para justificar mi laburo diario en el mes de diciembre.
+
 
