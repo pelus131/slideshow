@@ -171,7 +171,7 @@ namespace Slideshow
 
         private void Doc_PrintPage(object sender, PrintPageEventArgs e)
         {
-            //Pinche codigo para reescalar o imprimir original,seguir investigando reescalas
+            
             //Bitmap bm = new Bitmap(imageViewer.Width, imageViewer.Height);
             // imageViewer.DrawToBitmap(bm, new Rectangle(0, 0, imageViewer.Width, imageViewer.Height));
             //****(bm,0,0)
@@ -234,9 +234,9 @@ namespace Slideshow
                     catch (SecurityException ex)
                     {
                         // The user lacks appropriate permissions to read files, discover paths, etc.
-                        MessageBox.Show("Security error. Please contact your administrator for details.\n\n" +
+                        MessageBox.Show("Security error.\n\n" +
                             "Error message: " + ex.Message + "\n\n" +
-                            "Details (send to Support):\n\n" + ex.StackTrace
+                            "Details:\n\n" + ex.StackTrace
                         );
                     }
                     catch (Exception ex)
